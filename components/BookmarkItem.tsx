@@ -43,14 +43,14 @@ export default function BookmarkItem({ bookmark }: { bookmark: Bookmark }) {
 
     return (
         <div className="group flex items-center justify-between p-4 bg-card rounded-lg border shadow-sm hover:shadow-md transition-all">
-            <div className="flex-1 min-w-0 mr-3 sm:mr-4">
-                <h3 className="font-medium truncate text-foreground group-hover:text-primary transition-colors">
-                    <a href={bookmark.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                        {bookmark.title}
-                        <ExternalLink className="h-3 w-3 md:opacity-0 md:group-hover:opacity-100 transition-opacity" />
+            <div className="flex-1 min-w-0 mr-3 sm:mr-4 overflow-hidden">
+                <h3 className="font-medium text-foreground group-hover:text-primary transition-colors">
+                    <a href={bookmark.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 w-full">
+                        <span className="truncate flex-1">{bookmark.title}</span>
+                        <ExternalLink className="h-3 w-3 shrink-0 md:opacity-0 md:group-hover:opacity-100 transition-opacity" />
                     </a>
                 </h3>
-                <p className="text-xs sm:text-sm text-muted-foreground truncate">{bookmark.url}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground break-all md:truncate">{bookmark.url}</p>
             </div>
 
             <div className="flex items-center gap-1 sm:gap-2 shrink-0 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
