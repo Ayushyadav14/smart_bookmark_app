@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
 import { useState, useRef, useEffect } from 'react'
 
-export default function Navbar({ userEmail }: { userEmail: string }) {
+export default function Navbar({ userEmail, userName }: { userEmail: string; userName?: string }) {
     const [isOpen, setIsOpen] = useState(false)
     const dropdownRef = useRef<HTMLDivElement>(null)
     const router = useRouter()
@@ -73,8 +73,16 @@ export default function Navbar({ userEmail }: { userEmail: string }) {
                     {isOpen && (
                         <div className="absolute right-0 mt-2 w-64 origin-top-right rounded-xl border bg-popover text-popover-foreground shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none transition-all animate-in fade-in zoom-in-95 duration-100 pb-1 z-50">
                             <div className="px-4 py-4 border-b border-border/50">
-                                <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1.5">Account info</p>
-                                <p className="text-sm font-semibold truncate text-foreground">{userEmail}</p>
+                                <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1">Account</p>
+                                <div className="space-y-0.5">
+                                    <p className="text-xs text-muted-foreground font-medium">Logged in as:</p>
+                                    <p className="text-sm font-semibold truncate text-foreground">
+                                        {userName || userEmail}
+                                    </p>
+                                    {userName && (
+                                        <p className="text-[11px] text-muted-foreground truncate">{userEmail}</p>
+                                    )}
+                                </div>
                             </div>
                             <div className="p-1.5">
                                 <button

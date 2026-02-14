@@ -22,7 +22,7 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar userEmail={user.email || ''} />
+      <Navbar userEmail={user.email || ''} userName={user.user_metadata?.full_name} />
 
       <main className="container mx-auto px-4 py-8">
         <div className="flex flex-col space-y-8">
