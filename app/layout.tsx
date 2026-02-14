@@ -6,8 +6,8 @@ import { Toaster } from "sonner";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "Smart Bookmark App",
-    description: "A premium, real-time bookmark manager.",
+    title: "Smart Bookmark",
+    description: "Private real-time bookmark manager",
 };
 
 export default function RootLayout({
